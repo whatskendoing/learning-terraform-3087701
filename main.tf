@@ -1,16 +1,4 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
-}
-
-provider "aws" {
-  region = "us-east-1"  # or your preferred region
-}
-
+# Remove the terraform and provider blocks from here
 data "aws_ami" "app_ami" {
   most_recent = true
   filter {
