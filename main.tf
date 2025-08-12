@@ -21,7 +21,7 @@ resource "aws_instance" "blog" {
   ami           = data.aws_ami.app_ami.id
   instance_type = var.instance_type
 
-  vpc_security_group_ids = [aws_security_group.blog.id]
+  vpc_security_group_ids = [aws_security_group.aws_security_group_ruleblog.id]
 
   tags = {
     Name = "HelloWorld"
@@ -43,7 +43,7 @@ resource "aaws_security_group_rule" "blog_http_in" {
   protocol    = "tcp"
   cidr_blocks = ["0.0.0.0"/0]
   
-  security_group_id = aws_security_group.blog.id
+  security_group_id = aws_security_group_rule.blog.id
 
 }
 
@@ -54,7 +54,7 @@ resource "aws_security_group_rule" "blog_https_in" {
   protocol    = "tcp"
   cidr_blocks = ["0.0.0.0"/0]
   
-  security_group_id = aws_security_group.blog.id
+  security_group_id = aws_security_group_rule.blog.id
 
 }
 
@@ -65,6 +65,6 @@ resource "aws_security_group_rule" "blog_everythign_out" {
   protocol    = "-1"
   cidr_blocks = ["0.0.0.0"/0]
   
-  security_group_id = aws_security_group.blog.id
+  security_group_id = aws_security_group_rule.blog.id
 
 }
